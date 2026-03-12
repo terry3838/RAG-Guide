@@ -1,0 +1,126 @@
+# 08. 사례 연구 — 사주 RAG 시스템
+
+## 1. 왜 사주가 좋은 사례인가
+
+사주 도메인은 일반 텍스트 검색보다 훨씬 까다롭다.
+
+이유:
+- 한자/한글 혼용
+- 표와 조견표 비중이 높음
+- 사례 명식 블록이 중요함
+- 일반론과 사례가 섞여 있음
+- 질문이 짧아도 실제 의도는 복합적임
+
+즉 사주 RAG는 **도메인 특화 검색 설계**를 설명하기에 좋은 예시다.
+
+---
+
+## 2. 파이프라인 요약
+
+### 입력
+- 책/원전/강의 자료
+- Upstage parser 결과(JSON/Markdown)
+
+### 처리
+- 재전처리
+- 하이브리드 청킹
+- 명식 시그니처 감지
+- primary / secondary / drop 분리
+- Upstage embedding-query 임베딩
+- Qdrant 업로드
+
+### 검색
+- 질문 임베딩
+- dense retrieval
+- lexical + metadata rerank
+- bucketed harness
+- 필요시 CRAG 재검색
+
+---
+
+## 3. 실제 컬렉션 진화 예시
+
+```text
+saju_v1                -> raw 중심, 중복과 노이즈 큼
+saju_v2_curated        -> 정제 + metadata 반영
+saju_v3_primary_core   -> 본문 중심 실전 컬렉션
+```
+
+핵심 교훈:
+- 정리되지 않은 데이터는 검색 품질을 망친다.
+- 표와 본문을 섞으면 상위 결과가 흔들린다.
+- core-primary를 별도 컬렉션으로 두면 실제 통변 품질이 좋아진다.
+
+---
+
+## 4. 하네스에서 중요한 레이어
+
+사주 답변은 단순 검색 결과 붙이기가 아니다.
+보통 이런 레이어를 가진다.
+
+1. 질문 요약
+2. 근거(직접/근접)
+3. 명식 구조 지표
+4. 형·충·합·파·해
+5. 신살 + 십이운성
+6. 대운/세운 개입
+7. 결론
+8. 리스크 / 실행 액션
+9. 신뢰도
+
+이 구조는 다른 도메인 하네스 설계에도 참고할 수 있다.
+
+---
+
+## 5. 이 사례에서 배운 교훈
+
+### 데이터 교훈
+- parser 출력물을 바로 쓰면 안 된다.
+- 청킹보다 먼저 noise 제거가 필요하다.
+
+### retrieval 교훈
+- 질문도 임베딩해야 한다.
+- dense retrieval만으로는 부족하다.
+- rerank에서 quality가 갈린다.
+
+### 운영 교훈
+- v1 삭제부터 하면 안 된다.
+- 새 컬렉션을 병렬로 만들고 비교해야 한다.
+- 기본 컬렉션 전환은 마지막에 해야 한다.
+
+---
+
+## 6. Mermaid: 사주 RAG의 실제 흐름
+
+```mermaid
+flowchart TB
+    DOCS[사주 원전 / 사례집 / 강의자료] --> PARSE[Upstage Parse]
+    PARSE --> CHUNK[하이브리드 청킹]
+    CHUNK --> SPLIT[primary / secondary / drop]
+    SPLIT --> EMBED[Upstage embedding-query]
+    EMBED --> QDRANT[Qdrant]
+
+    USERQ[사용자 질문] --> ENC[질문 인코딩]
+    ENC --> QEMBED[질문 임베딩]
+    QEMBED --> SEARCH[Dense Retrieval]
+    SEARCH --> RERANK[metadata-aware rerank]
+    RERANK --> HARNESS[saju 하네스]
+    HARNESS --> ANSWER[정식 통변 답변]
+```
+
+---
+
+## 7. 다른 도메인에도 적용 가능한가
+
+가능하다. 아래 같은 도메인에 그대로 확장 가능하다.
+
+- 법률 문서
+- 의료 문헌
+- 재무/회계 매뉴얼
+- 내부 SOP/운영 매뉴얼
+- 기술 문서
+
+조건은 같다.
+- 구조가 중요한 문서일 것
+- 표/섹션/사례가 많을 것
+- 단순 semantic search로는 부족할 것

@@ -1,0 +1,14 @@
+{
+  "providers": {
+    "upstage": {
+      "baseURL": "https://api.upstage.ai/v1",
+      "apiKey": "YOUR_UPSTAGE_API_KEY"
+    }
+  },
+  "models": {
+    "embedding": {
+      "provider": "upstage",
+      "model": "embedding-query"
+    }
+  }
+}
