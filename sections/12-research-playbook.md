@@ -115,15 +115,7 @@ RAG는 문서를 잘 넣는 것만으로 끝나지 않는다.
 
 ## 7. 릴리즈 전 점검 루틴
 
-```mermaid
-flowchart LR
-    BUILD[새 컬렉션] --> RETRIEVE[평가셋 검색]
-    RETRIEVE --> JUDGE[수동/자동 judge]
-    JUDGE --> PASS{통과?}
-    PASS -- No --> FIX[청킹 / metadata / rerank 수정]
-    FIX --> BUILD
-    PASS -- Yes --> RELEASE[기본 컬렉션 전환]
-```
+![Diagram 1](../assets/diagrams/sections__12-research-playbook__diagram_1.svg)
 
 ---
 

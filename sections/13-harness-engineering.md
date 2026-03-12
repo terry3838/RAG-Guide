@@ -104,18 +104,7 @@ RAG에서 검색만 잘 된다고 끝이 아니다.
 
 ## 6. Mermaid: 하네스 내부 아키텍처
 
-```mermaid
-flowchart TB
-    Q[사용자 질문] --> QE[Query Encoding]
-    QE --> B[Bucket Expansion]
-    B --> D[Dense Retrieval]
-    D --> R[Metadata-aware Rerank]
-    R --> C{근거 충분?}
-    C -- No --> RS[CRAG-style Re-search]
-    RS --> D
-    C -- Yes --> E[Evidence Bundle]
-    E --> A[Answer Assembly]
-```
+![Diagram 1](../assets/diagrams/sections__13-harness-engineering__diagram_1.svg)
 
 ---
 

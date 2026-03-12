@@ -43,29 +43,7 @@ RAG를 공부하다 보면 금방 이런 문제를 만난다.
 
 ## 전체 아키텍처
 
-```mermaid
-flowchart TB
-    USER[사용자 질문] --> QUERY_ENC[질문 인코딩 / Query Encoding]
-    QUERY_ENC --> Q_EMBED[질문 임베딩]
-
-    subgraph INGESTION[Ingestion Pipeline]
-        DOCS[원문 문서 / PDF / Markdown / JSON]
-        PARSE[Document Parser<br/>Upstage Document Parse]
-        PRE[전처리 / 노이즈 제거]
-        CHUNK[하이브리드 청킹<br/>구조 + 규칙 + 도메인]
-        TAG[메타데이터 태깅]
-        D_EMBED[문서 청크 임베딩]
-        QDRANT[Qdrant Collections]
-        DOCS --> PARSE --> PRE --> CHUNK --> TAG --> D_EMBED --> QDRANT
-    end
-
-    Q_EMBED --> RETRIEVE[Dense Retrieval]
-    QDRANT --> RETRIEVE
-    RETRIEVE --> RERANK[Lexical + Metadata-aware Rerank]
-    RERANK --> EVIDENCE[근거 후보 / Evidence]
-    EVIDENCE --> HARNESS[도메인 하네스 / Prompt Assembly]
-    HARNESS --> ANSWER[최종 답변]
-```
+![Diagram 1](assets/diagrams/README__diagram_1.svg)
 
 ---
 

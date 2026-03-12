@@ -92,21 +92,7 @@ saju_v3_primary_core   -> 본문 중심 실전 컬렉션
 
 ## 6. Mermaid: 사주 RAG의 실제 흐름
 
-```mermaid
-flowchart TB
-    DOCS[사주 원전 / 사례집 / 강의자료] --> PARSE[Upstage Parse]
-    PARSE --> CHUNK[하이브리드 청킹]
-    CHUNK --> SPLIT[primary / secondary / drop]
-    SPLIT --> EMBED[Upstage embedding-query]
-    EMBED --> QDRANT[Qdrant]
-
-    USERQ[사용자 질문] --> ENC[질문 인코딩]
-    ENC --> QEMBED[질문 임베딩]
-    QEMBED --> SEARCH[Dense Retrieval]
-    SEARCH --> RERANK[metadata-aware rerank]
-    RERANK --> HARNESS[saju 하네스]
-    HARNESS --> ANSWER[정식 통변 답변]
-```
+![Diagram 1](../assets/diagrams/sections__08-saju-case-study__diagram_1.svg)
 
 ---
 

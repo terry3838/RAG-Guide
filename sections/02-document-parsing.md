@@ -70,14 +70,7 @@ parser 결과에는 보통 이런 게 섞여 있다.
 
 ## 5. parsing → preprocessing 흐름
 
-```mermaid
-flowchart LR
-    PDF[PDF / Scan / Doc] --> PARSER[Document Parse]
-    PARSER --> STRUCT[구조화 결과<br/>heading / paragraph / table]
-    STRUCT --> CLEAN[노이즈 제거]
-    CLEAN --> FILTER[목차 / 표목록 / 판권 제거]
-    FILTER --> CHUNK[청킹 준비 완료]
-```
+![Diagram 1](../assets/diagrams/sections__02-document-parsing__diagram_1.svg)
 
 ---
 

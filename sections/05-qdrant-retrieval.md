@@ -88,15 +88,4 @@ Qdrant는 payload filter를 지원한다.
 
 ## 7. Mermaid: retrieval 전략
 
-```mermaid
-flowchart TB
-    QUERY[질문] --> QEMBED[질문 임베딩]
-    QEMBED --> MAIN[Qdrant Main Collection]
-    QEMBED --> AUX[Qdrant Secondary Table Collection]
-    MAIN --> CAND1[Primary candidates]
-    AUX --> CAND2[Secondary candidates]
-    CAND1 --> MERGE[merge / select]
-    CAND2 --> MERGE
-    MERGE --> RERANK[rerank]
-    RERANK --> FINAL[최종 근거 후보]
-```
+![Diagram 1](../assets/diagrams/sections__05-qdrant-retrieval__diagram_1.svg)

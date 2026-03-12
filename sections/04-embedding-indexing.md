@@ -91,11 +91,4 @@ payload에는 최소한 아래가 있어야 한다.
 
 ## 8. Mermaid: 인덱싱 흐름
 
-```mermaid
-flowchart LR
-    CHUNKS[Chunk JSONL] --> FILTER[embedding_recommended filter]
-    FILTER --> BUILD[embedding input 구성]
-    BUILD --> EMBED[Embedding API]
-    EMBED --> VECTORS[vector + payload 생성]
-    VECTORS --> QDRANT[Qdrant Collection Upload]
-```
+![Diagram 1](../assets/diagrams/sections__04-embedding-indexing__diagram_1.svg)

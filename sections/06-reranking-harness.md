@@ -98,18 +98,7 @@ harness는 단순 검색기가 아니다.
 
 ## 7. Mermaid: harness 내부 흐름
 
-```mermaid
-flowchart LR
-    USERQ[사용자 질문] --> INTENT[질문 의도 분류]
-    INTENT --> BUCKETS[버킷별 쿼리 생성]
-    BUCKETS --> RET[Qdrant retrieval]
-    RET --> RR[Rerank]
-    RR --> CHECK{근거 충분?}
-    CHECK -- No --> CRAG[Query Rewrite / Re-search]
-    CRAG --> RET
-    CHECK -- Yes --> EVID[근거 묶음]
-    EVID --> ANSWER[최종 답변 조립]
-```
+![Diagram 1](../assets/diagrams/sections__06-reranking-harness__diagram_1.svg)
 
 ---
 

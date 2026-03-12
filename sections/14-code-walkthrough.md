@@ -134,19 +134,7 @@
 
 ## 3. 코드 아키텍처 요약
 
-```mermaid
-flowchart LR
-    PARSED[Parsed Docs] --> CHUNK[chunk_upstage_parsed.py]
-    CHUNK --> TIER[split_chunk_tiers.py]
-    TIER --> CORE[build_core_primary.py]
-    CORE --> EMBED[embed_upstage_chunks.py]
-    EMBED --> UPLOAD[upload_qdrant_chunks.py]
-    USERQ[User Query] --> HARNESS[qdrant_saju_harness.py]
-    HARNESS --> RETRIEVE[qdrant_rerank.py]
-    HARNESS --> PROFILE[ten_god_profile.py]
-    RETRIEVE --> ANSWER[Evidence-based Answer]
-    PROFILE --> ANSWER
-```
+![Diagram 1](../assets/diagrams/sections__14-code-walkthrough__diagram_1.svg)
 
 ---
 

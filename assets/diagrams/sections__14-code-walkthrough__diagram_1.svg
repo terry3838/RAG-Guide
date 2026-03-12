@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1383.095 246.70000000000002" width="1383.095" height="246.70000000000002" style="--bg:#ffffff;--fg:#1f2328;--line:#d1d9e0;--accent:#0969da;--muted:#59636e">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<polyline class="edge" data-from="PARSED" data-to="CHUNK" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="159.755,58.45 203.30900000000003,58.45" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CHUNK" data-to="TIER" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="405.315,58.45 446.646,58.45" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="TIER" data-to="CORE" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="608.6379999999999,58.45 667.7529999999999,58.45" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CORE" data-to="EMBED" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="844.5649999999999,58.45 892.5649999999999,58.45" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="EMBED" data-to="UPLOAD" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1097.535,58.45 1145.535,58.45" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="USERQ" data-to="HARNESS" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="150.86300000000008,155.8 203.30900000000003,155.8" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="HARNESS" data-to="RETRIEVE" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="391.977,155.8 419.3115,155.8 419.3115,123.35000000000001 446.646,123.35000000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="HARNESS" data-to="PROFILE" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="391.977,155.8 419.3115,155.8 419.3115,188.25 446.646,188.25" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="RETRIEVE" data-to="ANSWER" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="593.818,123.35000000000001 616.7065,123.35000000000001 616.7065,155.8 635.149,155.8" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="PROFILE" data-to="ANSWER" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="598.264,188.25 616.7065,188.25 616.7065,155.8 635.149,155.8" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="node" data-id="PARSED" data-label="Parsed Docs" data-shape="rectangle">
+  <rect x="40" y="40" width="119.755" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="99.8775" y="58.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Parsed Docs</text>
+</g>
+<g class="node" data-id="CHUNK" data-label="chunk_upstage_parsed.py" data-shape="rectangle">
+  <rect x="203.30900000000003" y="40" width="202.00599999999994" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="304.312" y="58.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">chunk_upstage_parsed.py</text>
+</g>
+<g class="node" data-id="TIER" data-label="split_chunk_tiers.py" data-shape="rectangle">
+  <rect x="446.646" y="40" width="161.99200000000002" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="527.642" y="58.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">split_chunk_tiers.py</text>
+</g>
+<g class="node" data-id="CORE" data-label="build_core_primary.py" data-shape="rectangle">
+  <rect x="667.7529999999999" y="40" width="176.81199999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="756.1589999999999" y="58.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">build_core_primary.py</text>
+</g>
+<g class="node" data-id="EMBED" data-label="embed_upstage_chunks.py" data-shape="rectangle">
+  <rect x="892.5649999999999" y="40" width="204.96999999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="995.05" y="58.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">embed_upstage_chunks.py</text>
+</g>
+<g class="node" data-id="UPLOAD" data-label="upload_qdrant_chunks.py" data-shape="rectangle">
+  <rect x="1145.535" y="40" width="197.55999999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1244.315" y="58.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">upload_qdrant_chunks.py</text>
+</g>
+<g class="node" data-id="USERQ" data-label="User Query" data-shape="rectangle">
+  <rect x="40.000000000000085" y="137.35000000000002" width="110.863" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="95.43150000000009" y="155.8" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">User Query</text>
+</g>
+<g class="node" data-id="HARNESS" data-label="qdrant_saju_harness.py" data-shape="rectangle">
+  <rect x="203.30900000000003" y="137.35000000000002" width="188.66799999999995" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="297.64300000000003" y="155.8" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">qdrant_saju_harness.py</text>
+</g>
+<g class="node" data-id="RETRIEVE" data-label="qdrant_rerank.py" data-shape="rectangle">
+  <rect x="446.646" y="104.9" width="147.17200000000003" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="520.232" y="123.35000000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">qdrant_rerank.py</text>
+</g>
+<g class="node" data-id="PROFILE" data-label="ten_god_profile.py" data-shape="rectangle">
+  <rect x="446.646" y="169.8" width="151.618" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="522.455" y="188.25" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">ten_god_profile.py</text>
+</g>
+<g class="node" data-id="ANSWER" data-label="Evidence-based Answer" data-shape="rectangle">
+  <rect x="635.149" y="137.35000000000002" width="187.18599999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="728.742" y="155.8" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Evidence-based Answer</text>
+</g>
+</svg>

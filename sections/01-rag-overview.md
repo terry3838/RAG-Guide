@@ -29,22 +29,7 @@ RAG는 이런 문제를 줄인다.
 
 ## 3. RAG의 기본 구조
 
-```mermaid
-sequenceDiagram
-    participant U as User
-    participant Q as Query Encoder
-    participant V as Vector DB
-    participant R as Reranker
-    participant L as LLM
-
-    U->>Q: 질문 입력
-    Q->>V: 질문 임베딩 기반 검색
-    V-->>Q: 후보 청크 반환
-    Q->>R: 후보 + 메타데이터 전달
-    R-->>Q: 재정렬된 근거 후보
-    Q->>L: 질문 + 근거 + 지시문 전달
-    L-->>U: 근거 기반 최종 답변
-```
+![Diagram 1](../assets/diagrams/sections__01-rag-overview__diagram_1.svg)
 
 ---
 

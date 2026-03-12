@@ -108,17 +108,7 @@ semantic chunking은 의미 흐름을 보고 나누는 데 강하다.
 
 ## 7. Mermaid: 청킹 설계 흐름
 
-```mermaid
-flowchart TB
-    PARSED[Parsed Document] --> STRUCT[구조 분리<br/>heading / paragraph / table]
-    STRUCT --> CLEAN[노이즈 제거]
-    CLEAN --> RULES[규칙 적용<br/>목차 제거 / 표 분리 / 시그니처 감지]
-    RULES --> META[메타데이터 태깅]
-    META --> TIER[retrieval tier 분리]
-    TIER --> PRIMARY[Primary Chunks]
-    TIER --> SECONDARY[Secondary Table Chunks]
-    TIER --> DROP[Drop]
-```
+![Diagram 1](../assets/diagrams/sections__03-hybrid-chunking__diagram_1.svg)
 
 ---
 
